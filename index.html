@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+
+    div {
+        padding: 10px 0;
+    }
+
+    section {
+        background-color: lightpink;
+        width: 400px;
+        height: 400px;
+        margin: auto;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <section>
+        <h1>GRADING SYSTEM</h1>
+        <div>
+            <label for="Grade">English Language</label>
+            <input type="text" id="Grade1" placeholder="English">
+        </div>
+        <div>
+            <label for="Grade">Mathematics</label>
+            <input type="text" id="Grade2" placeholder="Mathematics">
+        </div>
+        <div>
+            <label for="Grade">Physics</label>
+            <input type="text" id="Grade3" placeholder="Physics">
+        </div>
+        <div>
+            <label for="Grade">Chemistry</label>
+            <input type="text" id="Grade4" placeholder="Chemistry">
+        </div>
+        <audio id="myAudio">
+             <source src="Jesus-Is-Lord.mp3" type="audio/mpeg">
+             Your browser does not support the audio element.
+        </audio>
+        <audio id="AnotherAudio1">
+            <source src="E-shock-you-broda-shaggi.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="AnotherAudio2">
+            <source src="No-be-juju-be-that.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="AnotherAudio3">
+            <source src="Ehnnn-Ehnnnn-sound-effect.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <p id="Result"></p>
+         <button onclick="playAudio()" type="button">Submit</button>
+    </section>
+</body>
+</html>
+<script>
+    let x = document.getElementById("myAudio");
+    let y = document.getElementById("AnotherAudio1");
+    let w = document.getElementById("AnotherAudio2");
+    let a = document.getElementById("AnotherAudio3");
+    let inp1 = document.getElementById("Grade1")
+    let inp2 = document.getElementById("Grade2")
+    let inp3 = document.getElementById("Grade3")
+    let inp4 = document.getElementById("Grade4")
+
+    function playAudio() {
+        let Total = Number(inp1.value) + Number(inp2.value) + Number(inp3.value) + Number(inp4.value)
+        let percentage = (Total / 400) * 100
+        console.log(percentage);
+        if (percentage < 40) {
+            x.play();
+            document.getElementById("Result").innerHTML = "Your score is" + " " + percentage + "%" + "." + " " + "You failed"
+        }else if (percentage > 40 && percentage < 60) {
+            w.play();
+            document.getElementById("Result").innerHTML = "Your score is" + " " + percentage + "%" + "." + " " + "You passed"
+        }else if (percentage >60) {
+             y.play();
+            document.getElementById("Result").innerHTML = "Your score is" + " " + percentage + "%" + "." + " " + "You passed"
+        }
+        
+    }
+</script>
